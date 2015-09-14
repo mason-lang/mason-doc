@@ -1,0 +1,53 @@
+link(rel='stylesheet' href='./lib/font-awesome/css/font-awesome.css')
+
+template#mason-doc-module-template
+	style @import "style/mason-doc.css"
+
+	h1#module-name
+	div#module-comment
+	div#module-exports
+
+template#mason-doc-export-template
+	summary.no-details
+		h1#export-name
+		span#extra
+		span#brief
+	div#value
+
+template#mason-doc-export-with-value-template
+	details(open)
+		summary
+			h1#export-name
+			span#extra
+			span#brief
+		div#value
+
+template#mason-doc-args-template
+	span#fun-kind
+	span#fun-args
+
+template#mason-doc-arg-template
+	span#arg-name
+	span#arg-type
+
+template#mason-doc-super-template
+	// pass
+
+template#mason-doc-class-template
+	details(open)#statics
+		summary statics
+	div#constructor
+	details(open)#methods
+		summary methods
+
+template#mason-doc-constructor-template
+	header
+		span#constructor-args
+		span#constructor-comment
+
+template#mason-doc-method-template
+	header
+		span#method-name
+		span#method-args
+		span#method-comment
+

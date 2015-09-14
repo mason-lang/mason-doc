@@ -1,0 +1,125 @@
+@require "lib"
+
+namey()
+	// TODO: font-xxx() helper
+	font-family Overlock
+	font-weight bold
+	color darkmagenta
+
+name()
+	font-size 125%
+	text-align left
+
+	display inline-block
+	min-width 8em
+	margin-right 1em
+
+	namey()
+
+#module-name
+	namey()
+	font-size 200%
+	margin -0.5em 0
+	text-align center
+
+#module-comment
+	font-text()
+
+#module-exports
+	font-text()
+
+// TODO: try using css classes instead of mixins
+extra()
+	display inline-block
+	min-width 8em
+	margin-right 1em
+
+brief()
+	// color #448
+
+indent-right-like-details()
+	margin-left 1.33em
+
+mason-doc-export
+	background #fff6
+	// Generally this will be as high as possible, meaning it closes like a 'D'.
+	border-radius-right 4em
+
+	margin 0 0.5em
+
+	#export-name
+		name()
+		display inline-block
+		margin-top 0
+		margin-bottom 0
+
+	summary.no-details
+		indent-right-like-details()
+
+	#extra
+		extra()
+
+	#brief
+		brief()
+
+	#value
+		indent-right-like-details()
+		margin-bottom 0.5em
+
+mason-doc-args
+	#fun-kind
+		font-weight bold
+		color #800
+
+mason-doc-arg
+	margin 0 0.25em
+
+	#arg-name
+		color #606
+
+	#arg-type
+		color #4cc
+
+	#arg-type::before
+		gray()
+		font-style normal
+		content ":"
+
+mason-doc-super::before
+	gray()
+	content "extends "
+
+mason-doc-super
+	font-header()
+
+mason-doc-class
+	#statics
+		background #ff82
+		border-radius-right 2em
+
+	#statics > summary, #methods > summary
+		gray()
+
+	#methods
+		background #8ff2
+		border-radius-right 2em
+
+
+mason-doc-constructor
+	header::before
+		name()
+		content "construct!"
+
+	#constructor-args
+		extra()
+
+mason-doc-method
+	display block
+
+	header
+		#method-name
+			name()
+		#method-args
+			extra()
+		#method-comment
+			brief()

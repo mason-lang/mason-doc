@@ -1,0 +1,9 @@
+{
+	"name": "mason-doc",
+	"dependencies": {
+		"fetch": "0.9.0",
+		"marked": "0.3.5",
+		"mason-compile": "mason-lang/mason-compile",
+		"requirejs": "2.1.20"
+	}
+}
