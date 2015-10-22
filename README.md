@@ -1,8 +1,10 @@
 WIP
 
-## Run
+To run:
 
-	bower install; npm install
-	npm run serve
+	npm install
+	npm run compile-assets
+	npm run build
+	node dist/test
 
-Then see e.g. <http://localhost:8000/?project=mason-lang.msl&module=src.Object>.
+Then open out/sample.html

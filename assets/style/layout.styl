@@ -1,0 +1,31 @@
+@require "_lib"
+
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
+@import 'https://fonts.googleapis.com/css?family=Overlock|Patua+One|PT+Mono|PT+Sans:400,400italic'
+
+*
+	margin 0
+	padding 0
+
+a
+	text-decoration none
+a:hover
+	color #f0f
+
+body
+	background '../bg.gif'
+
+header-footer-shadow-size = 4px
+
+header
+	background-image linear-gradient(#ffe8, #efe8, #eff8)
+	box-shadow 0 header-footer-shadow-size (header-footer-shadow-size * 2) gray
+	margin-bottom 1em
+
+footer
+	background #efe8
+	box-shadow 0 (header-footer-shadow-size * -1) (header-footer-shadow-size * 2) gray
+	margin-top 2em
+
+main
+	background #fff6

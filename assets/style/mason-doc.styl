@@ -1,4 +1,4 @@
-@require "lib"
+@require "_lib"
 
 namey()
 	// TODO: font-xxx() helper
@@ -16,110 +16,132 @@ name()
 
 	namey()
 
-#module-name
-	namey()
-	font-size 200%
-	margin -0.5em 0
-	text-align center
+.mason-doc-module
+	background #e
 
-#module-comment
-	font-text()
+	> .name
+		namey()
+		font-size 200%
+		text-align center
 
-#module-exports
+	> .exports
+		font-text()
+
+	details
+		> summary::-webkit-details-marker
+			display none
+		> summary:after
+			color #f
+			font-weight bold
+			float right
+			text-align center
+			w = 1.25rem
+			width w
+			border-radius w
+
+			background #00f
+			content '+'
+
+		&[open] > summary:after
+			background #08f
+			content '-'
+
+.comment
 	font-text()
+	font-style italic
 
 // TODO: try using css classes instead of mixins
-extra()
+//rename
+brief()
 	display inline-block
 	min-width 8em
 	margin-right 1em
 
 brief()
-	// color #448
+	color #448
 
-indent-right-like-details()
-	margin-left 1.33em
+.mason-doc-export
+	background #fff8
+	margin 1em 0
 
-mason-doc-export
-	background #fff6
-	// Generally this will be as high as possible, meaning it closes like a 'D'.
-	border-radius-right 4em
+	> summary
+		> .name
+			name()
+			display inline-block
+			margin-top 0
+			margin-bottom 0
 
-	margin 0 0.5em
+		> .brief
+			display inline-block
+			brief()
 
-	#export-name
-		name()
-		display inline-block
-		margin-top 0
-		margin-bottom 0
-
-	summary.no-details
-		indent-right-like-details()
-
-	#extra
-		extra()
-
-	#brief
-		brief()
-
-	#value
-		indent-right-like-details()
+	> .value
 		margin-bottom 0.5em
 
-mason-doc-args
-	#fun-kind
+.mason-doc-fun
+	display inline-block
+
+	> .kind
+		display inline-block
 		font-weight bold
 		color #800
+		width 1em
+		text-align right
+	> .args
+		display inline-block
 
-mason-doc-arg
+.mason-doc-arg
+	display inline
 	margin 0 0.25em
 
-	#arg-name
+	> .name
+		display inline
 		color #606
 
-	#arg-type
+	> .type
+		display inline
 		color #4cc
 
-	#arg-type::before
-		gray()
-		font-style normal
-		content ":"
+		&::before
+			gray()
+			font-style normal
+			content ":"
 
-mason-doc-super::before
+.mason-doc-super::before
 	gray()
 	content "extends "
 
-mason-doc-super
+.mason-doc-super
 	font-header()
 
-mason-doc-class
-	#statics
+.mason-doc-class
+	.statics, .methods
+		> summary
+			gray()
+		border-radius-right 2em
+
+	.statics
 		background #ff82
-		border-radius-right 2em
 
-	#statics > summary, #methods > summary
-		gray()
-
-	#methods
+	.methods
 		background #8ff2
-		border-radius-right 2em
 
-
-mason-doc-constructor
-	header::before
+.mason-doc-constructor
+	> .mason-doc-fun::before
 		name()
 		content "construct!"
 
-	#constructor-args
-		extra()
-
-mason-doc-method
+.mason-doc-method
 	display block
 
-	header
-		#method-name
+	summary
+		> .kind
+			display inline-block
+			font-weight bold
+			width 2em
+		> .name
+			display inline
 			name()
-		#method-args
-			extra()
-		#method-comment
+		> .fun
+			display inline
 			brief()
